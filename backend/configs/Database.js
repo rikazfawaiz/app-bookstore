@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 
 const url = [
-    'mongodb://localhost:27017/bookstore', 
-    'mongodb+srv://rikaz:7rAhNNcpzhZHnVsM@cluster0.hpxc8ty.mongodb.net/?retryWrites=true&w=majority']
+    'mongodb://localhost:27017/bookstore']
 mongoose.connect(url[0], {
     useNewUrlParser: true,
     useUnifiedTopology: true
