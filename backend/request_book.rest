@@ -1,0 +1,31 @@
+GET http://localhost:5000/books
+
+###
+
+GET http://localhost:5000/books/633fe49af3215b7259172856
+
+###
+
+POST http://localhost:5000/books
+Content-Type: application/json
+
+{
+    "title": "Bahasa Indonesia",
+    "author": "Kemdikbud",
+    "price": 12000,
+    "publisher": "INFORMATIKA",
+    "year": 2010,
+    "image": "test"
+}
+
+###
+
+PATCH http://localhost:5000/books/633fe6a626b8b78d93d76e17
+Content-Type: application/json
+
+{
+    "price":50000
+}
+
+###
+DELETE http://localhost:5000/books/633fe6a626b8b78d93d76e17

@@ -1,21 +1,21 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import cors from 'cors';
-import BookRoute from './routes/BookRoute.js';
+import upload from 'express-fileupload';
+import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
+import Routes from './routes/Routes.js';
+import database from './configs/database.js';
 
+dotenv.config();
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/bookstore', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+database;
 
-const db = mongoose.connection;
-db.on('error', (error) => console.log(error));
-db.once('open', () => console.log('Database Connected'));
-
-app.use(cors());
+app.use(cookieParser());
+app.use(cors({credentials:true, origin:'http://localhost:3000'}));
 app.use(express.json());
-app.use(BookRoute);
+app.use(upload());
+app.use(express.static('public'));
+app.use(Routes);
 
 app.listen(5000, () => console.log('Server running in http://localhost:5000'));
